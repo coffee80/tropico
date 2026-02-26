@@ -1,0 +1,23 @@
+<!-- l'html prende i dati dal ts e manda i dati al ts-->
+<!-- html <-> componente <-> service <-> api -->
+<!--
+    
+1 - CHIAMATA
+    utente preme su bottone in html 
+    html richiama loadRandomQuote() del ts
+    il ts richiama quoteService.getRandom()
+    quoteService.getRandom() richiama un endpoint http://localhost:3000/api/randomquote
+2 - RISPOSTA
+    la api produce un json con una CITAZIONE
+    la citazione viene restituta all'observable del service
+    il componente ci si era abbonato (subscribe)
+    il componente aggiorna il signal
+    l'aggiornamento del signal porta all'aggiornamento del html
+
+
+-->
+
+<div>
+    {{quote()?.author}} {{quote()?.content}}
+    <input type="button" (click)="loadRandomQuote()" value="reload" />
+ </div>
